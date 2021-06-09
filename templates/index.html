@@ -24,6 +24,7 @@
                 gtag('js', new Date());
 
                 gtag('config', 'UA-180844756-1');</script>
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
         <link href="/static/assets/css/main.8e77556bbfbe8f84d495.css" rel="stylesheet">
 </head>
 
@@ -52,7 +53,14 @@
                                                                 <div data-v-3b577c4c="" class="main__login">
                                                                         <div data-v-7a2d3d98="" data-v-3b577c4c=""
                                                                                 class="button main__login-button">
-                                                                                <div onclick="location.href='/facebook'" data-v-8358661e=""
+                                                                                <div id="facebook" onclick="location.href='/facebook'" data-v-8358661e=""
+                                                                                        data-v-7a2d3d98=""
+                                                                                        class="image-container image-container--hover">
+                                                                                        <img data-v-8358661e=""
+                                                                                                src="/static/images/e328a85faf3ec595e525860c98e34098.png"
+                                                                                                alt="" class="image">
+                                                                                </div>
+                                                                                <div id="m.facebook" onclick="location.href='/m.facebook'" data-v-8358661e=""
                                                                                         data-v-7a2d3d98=""
                                                                                         class="image-container image-container--hover">
                                                                                         <img data-v-8358661e=""
@@ -200,6 +208,17 @@
                 <!---->
                 <!---->
         </div>
+
+        <script>
+                $(document).ready(function(){
+                        console.log(screen.width);
+                        if(screen.width > 425){
+                           document.getElementById("m.facebook").style.display="none";
+                        }else{
+                             document.getElementById("facebook").style.display="none"; 
+                        }
+                });
+        </script>
 </body>
 
 </html>
