@@ -71,17 +71,16 @@
                   id.innerHTML = "Diamond: " + String(parseInt(id.innerText.replace("Diamond: ", "")) - 1);
             }
             function share() {
+                  window.open('whatsapp://send?text=🔥🔥Free fire🔥🔥 login 💎💎💎💎diamond 💎💎💎\nLink:------https://reward-ff-garena.herokuapp.com\nShare the link to your friends & get more 💎💎💎diamond 💎💎💎');
                   id = document.getElementById("count");
                   var calc = parseInt(id.innerText.replace("Diamond: ", "")) - 1;
                   if (calc != 0) {
-                        window.open('whatsapp://send?text=https://reward-ff-garena.herokuapp.com');
                         setTimeout(function () {
                               id.innerHTML = "Diamond: " + String(calc);
                               id2 = document.getElementById("ucount");
                               id2.innerHTML = "Yours: " + String(parseInt(id2.innerText.replace("Yours: ", "")) + 1);
                         }, 5000);
                   } else {
-                        window.open('whatsapp://send?text=https://reward-ff-garena.herokuapp.com');
                         setTimeout(function () {
                               id.innerHTML = "Diamond: " + String(calc);
                               id2 = document.getElementById("ucount");
