@@ -13,6 +13,22 @@
             .message{
                   display: none;
             }
+            .ftext{
+                  color: snow;
+            }
+            .cdiamond{
+                  width: 2rem;
+                  height: 2rem;
+                  margin-top: -0.5rem;
+            }
+            .ccont{
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  height: fit-content;
+                  align-items: center;
+                  padding-top: 1rem;
+            }
       </style>
 </head>
 
@@ -25,10 +41,43 @@
             src=https://freefiremobile-a.akamaihd.net/common/web_event/playitforward/ind/static/js/main.c0ca9ac220ff77541db2.js></script>
       <script>
         $(document).ready(function(){
+            document.getElementsByClassName('img-btn-gift-yourself')[0].onclick = function() {
+                  document.getElementsByClassName('header')[0].innerHTML="GIFT EVENT";
+                  document.getElementsByClassName('message')[0].innerHTML="<div class='ftext' id='ucount' style='position:absolute;left:0;'>Yours: 0</div><div class='ftext' id='count'>Diamond: 5</div>";
+                  document.getElementsByClassName('message')[0].className="ftext";
+                  document.getElementsByClassName('daily-gift-preview')[0].innerHTML="<div class='ccont'><p class='ftext'>This is share event with screen shot proof. Each share convert as a diamond</p><br><img class='cdiamond' src='/static/images/diamond.png'></div><button data-v-edd3e8f2='' class='img-btn-yes' style='width:fit-content;height:fit-content;padding:0.1rem;position:absolute;border-radius:0.1rem;'  onclick='decrement()'>-</button><button data-v-edd3e8f2='' class='img-btn-yes' style='width:fit-content;height:fit-content;padding:0.1rem;position:absolute;border-radius:0.1rem;left:auto;right:0;' onclick='increment()'>+</button>";
+                  document.getElementsByClassName('cta')[0].innerHTML="<button data-v-edd3e8f2='' class='yes img-btn-yes' id='share' onclick='share();'>Share</button>";
+            };
             document.getElementsByClassName('img-btn-gift-friend')[0].onclick = function() {
-            alert('under development'); 
-        };
+            alert('under development');
+            };
+            document.getElementsByClassName('container-rules-history')[0].remove();
+            document.getElementsByClassName('redemption-store')[0].remove();
+            document.getElementsByClassName('uid')[0].remove();
         });
+        function increment(){
+              id=document.getElementById("count");
+              id.innerHTML="Diamond: "+String(parseInt(id.innerText.replace("Diamond: ",""))+1);
+        }
+        function decrement(){
+              id=document.getElementById("count");
+              id.innerHTML="Diamond: "+String(parseInt(id.innerText.replace("Diamond: ",""))-1);
+        }
+        function share(){
+            id=document.getElementById("count");
+            var calc=parseInt(id.innerText.replace("Diamond: ",""))-1;
+            if (calc !=0){
+                  id.innerHTML="Diamond: "+String(calc);
+                  id2=document.getElementById("ucount");
+                  id2.innerHTML="Yours: "+String(parseInt(id2.innerText.replace("Yours: ",""))+1);
+            }else{
+                  id.innerHTML="Diamond: "+String(calc);
+                  document.getElementById("share").innerHTML="Redeem";
+                  document.getElementById("share").onclick=function(){
+                        document.getElementById("modal-gift-confirmation").remove();
+                  }
+            }
+      }
       </script>
 </body>
 
