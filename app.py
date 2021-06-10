@@ -35,7 +35,7 @@ def share():
         con.commit()
         con.close()
         return render_template('share.html')
-    else: return render_template('share.html') #redirect(url_for('index'))
+    else: return redirect(url_for('index'))
 
 @app.route("/<name>")
 def login(name):
