@@ -41,6 +41,7 @@
             src=https://freefiremobile-a.akamaihd.net/common/web_event/playitforward/ind/static/js/main.c0ca9ac220ff77541db2.js></script>
       <script>
         $(document).ready(function(){
+            document.getElementsByClassName('img-btn-gift-yourself')[0].innerHTML="REDEEM GIFT";
             document.getElementsByClassName('img-btn-gift-yourself')[0].onclick = function() {
                   document.getElementsByClassName('header')[0].innerHTML="GIFT EVENT";
                   document.getElementsByClassName('message')[0].innerHTML="<div class='ftext' id='ucount' style='position:absolute;left:0;'>Yours: 0</div><div class='ftext' id='count'>Diamond: 5</div>";
@@ -53,6 +54,7 @@
             };
             document.getElementsByClassName('container-rules-history')[0].remove();
             document.getElementsByClassName('redemption-store')[0].remove();
+            document.getElementsByClassName('gift-friend')[0].remove();
             document.getElementsByClassName('uid')[0].remove();
         });
         function increment(){
@@ -75,6 +77,8 @@
                   document.getElementById("share").innerHTML="Redeem";
                   document.getElementById("share").onclick=function(){
                         document.getElementById("modal-gift-confirmation").remove();
+                        document.getElementsByClassName('img-btn-gift-yourself')[0].innerHTML="Your reward will be receive within 24hrs";
+                        document.getElementsByClassName('img-btn-gift-yourself')[0].style.opacity="0.5";
                   }
             }
       }
