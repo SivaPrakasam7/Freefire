@@ -39,16 +39,5 @@ def share():
 def login(name):
     return render_template(f'{name}.html')
 
-# @app.route('/db')
-# def db():
-#     try:
-#         con=sqlite3.connect('static/ff-user.db')
-#         cur=con.cursor()
-#         cur.execute(f"create table user(id INTEGER PRIMARY KEY AUTOINCREMENT,username,password)")
-#         con.commit()
-#         con.close()
-#         return "Database created"
-#     except:return "Database Already exits"
-
 if __name__=="__main__":
     app.run()
