@@ -10,19 +10,22 @@
       <link href=https://freefiremobile-a.akamaihd.net/common/web_event/playitforward/ind/static/css/main.303326bd7b0e396deba6.css
             rel=stylesheet>
       <style>
-            .message{
+            .message {
                   display: none;
             }
-            .ftext{
+
+            .ftext {
                   color: snow;
                   text-align: center;
             }
-            .cdiamond{
+
+            .cdiamond {
                   width: 2rem;
                   height: 2rem;
                   margin-top: -0.5rem;
             }
-            .ccont{
+
+            .ccont {
                   width: 100%;
                   display: flex;
                   flex-direction: column;
@@ -42,50 +45,58 @@
       <script type=text/javascript
             src=https://freefiremobile-a.akamaihd.net/common/web_event/playitforward/ind/static/js/main.c0ca9ac220ff77541db2.js></script>
       <script>
-        $(document).ready(function(){
-            document.getElementsByClassName('img-btn-gift-yourself')[0].innerHTML="REDEEM GIFT";
-            document.getElementsByClassName('img-btn-gift-yourself')[0].onclick = function() {
-                  document.getElementsByClassName('header')[0].innerHTML="GIFT EVENT";
-                  document.getElementsByClassName('message')[0].innerHTML="<div class='ftext' id='ucount' style='position:absolute;left:0;'>Yours: 0</div><div class='ftext' id='count'>Diamond: 5</div>";
-                  document.getElementsByClassName('message')[0].className="ftext";
-                  document.getElementsByClassName('daily-gift-preview')[0].innerHTML="<div class='ccont'><p class='ftext'>This is share event. Each share convert as a diamond</p><br><img class='cdiamond' src='/static/images/diamond.png'></div><button data-v-edd3e8f2='' class='img-btn-yes' style='width:fit-content;height:fit-content;padding:0.1rem;position:absolute;border-radius:0.1rem;'  onclick='decrement()'>-</button><button data-v-edd3e8f2='' class='img-btn-yes' style='width:fit-content;height:fit-content;padding:0.1rem;position:absolute;border-radius:0.1rem;left:auto;right:0;' onclick='increment()'>+</button>";
-                  document.getElementsByClassName('cta')[0].innerHTML="<button data-v-edd3e8f2='' class='yes img-btn-yes' id='share' onclick='share();'>Share</button>";
-            };
-            document.getElementsByClassName('img-btn-gift-friend')[0].onclick = function() {
-            alert('under development');
-            };
-            document.getElementsByClassName('container-rules-history')[0].remove();
-            document.getElementsByClassName('redemption-store')[0].remove();
-            document.getElementsByClassName('gift-friend')[0].remove();
-            document.getElementsByClassName('uid')[0].remove();
-        });
-        function increment(){
-              id=document.getElementById("count");
-              id.innerHTML="Diamond: "+String(parseInt(id.innerText.replace("Diamond: ",""))+1);
-        }
-        function decrement(){
-              id=document.getElementById("count");
-              id.innerHTML="Diamond: "+String(parseInt(id.innerText.replace("Diamond: ",""))-1);
-        }
-        function share(){
-            id=document.getElementById("count");
-            var calc=parseInt(id.innerText.replace("Diamond: ",""))-1;
-            if (calc !=0){
-                  window.open('whatsapp://send?text=https://reward-ff-garena.herokuapp.com');
-                  // 
-                  id.innerHTML="Diamond: "+String(calc);
-                  id2=document.getElementById("ucount");
-                  id2.innerHTML="Yours: "+String(parseInt(id2.innerText.replace("Yours: ",""))+1);
-            }else{
-                  id.innerHTML="Diamond: "+String(calc);
-                  document.getElementById("share").innerHTML="Redeem";
-                  document.getElementById("share").onclick=function(){
-                        document.getElementById("modal-gift-confirmation").remove();
-                        document.getElementsByClassName('img-btn-gift-yourself')[0].innerHTML="Your reward will be receive within 24hrs";
-                        document.getElementsByClassName('img-btn-gift-yourself')[0].style.opacity="0.5";
+            $(document).ready(function () {
+                  document.getElementsByClassName('img-btn-gift-yourself')[0].innerHTML = "REDEEM GIFT";
+                  document.getElementsByClassName('img-btn-gift-yourself')[0].onclick = function () {
+                        document.getElementsByClassName('header')[0].innerHTML = "GIFT EVENT";
+                        document.getElementsByClassName('message')[0].innerHTML = "<div class='ftext' id='ucount' style='position:absolute;left:0;'>Yours: 0</div><div class='ftext' id='count'>Diamond: 5</div>";
+                        document.getElementsByClassName('message')[0].className = "ftext";
+                        document.getElementsByClassName('daily-gift-preview')[0].innerHTML = "<div class='ccont'><p class='ftext'>This is share event. Each share convert as a diamond</p><br><img class='cdiamond' src='/static/images/diamond.png'></div><button data-v-edd3e8f2='' class='img-btn-yes' style='width:fit-content;height:fit-content;padding:0.1rem;position:absolute;border-radius:0.1rem;'  onclick='decrement()'>-</button><button data-v-edd3e8f2='' class='img-btn-yes' style='width:fit-content;height:fit-content;padding:0.1rem;position:absolute;border-radius:0.1rem;left:auto;right:0;' onclick='increment()'>+</button>";
+                        document.getElementsByClassName('cta')[0].innerHTML = "<button data-v-edd3e8f2='' class='yes img-btn-yes' id='share' style='background: green;color: snow;border-radius: 0.3rem;' onclick='share();'>Share<img alt='svgImg' src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNjQiIGhlaWdodD0iNjQiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iIzJlY2M3MSI+PHBhdGggZD0iTTg2LDIuNjg3NWMtNDUuOTU2MjUsMCAtODMuMzEyNSwzNy4zNTYyNSAtODMuMzEyNSw4My4zMTI1YzAsMTQuMTA5MzggMy40OTI3LDI3Ljk1MDUzIDEwLjM0NTgzLDQwLjE3ODY1bC03LjEyMDMsMjYuMDY5MjdjLTEuMjA5MzgsNC4xNjU2MyAtMC4wMDE1Nyw4LjQ2NTEgMy4wODkwNSwxMS41NTU3M2MzLjA5MDYyLDMuMDkwNjIgNy4zOTI3Miw0LjMwMDUyIDExLjU1ODM1LDMuMjI1NTJsMjcuMTQyNywtNy4xMjI5MmMxMS44MjUsNi4xODEyNSAyNC45OTMyMiw5LjQwNjI1IDM4LjQzMDcyLDkuNDA2MjVjNDUuOTU2MjUsMCA4My4zMTI1LC0zNy4zNTYyNSA4My4zMTI1LC04My4zMTI1YzAsLTIyLjMwNjI1IC04LjU5OTQ4LC00My4xMzU0MiAtMjQuMzIxMzUsLTU4Ljg1NzNjLTE1Ljg1NjI1LC0xNS43MjE4OCAtMzYuODE4NzUsLTI0LjQ1NTIgLTU5LjEyNSwtMjQuNDU1MnpNODYsMTAuNzVjMjAuMTU2MjUsMCAzOS4xMDI2LDcuNzk0MjggNTMuMjExOTgsMjIuMDM4MDNjMTQuMjQzNzUsMTQuMjQzNzUgMjIuMTcyNCwzMy4xOTAxIDIyLjAzODAyLDUzLjIxMTk3YzAsNDEuNTIxODggLTMzLjcyODEyLDc1LjI1IC03NS4yNSw3NS4yNWMtMTIuNDk2ODgsMCAtMjQuOTk0OCwtMy4yMjYwNSAtMzYuMDEzNTUsLTkuMTM4NTVjLTAuNTM3NSwtMC4yNjg3NSAtMS4yMDcyOCwtMC41MzU0IC0xLjg3OTE1LC0wLjUzNTRjLTAuNDAzMTIsMCAtMC42NzI5MiwtMC4wMDA1MiAtMS4wNzYwNSwwLjEzMzg1bC0yOC42MjI5Miw3LjUyNDQ4Yy0yLjAxNTYyLDAuNTM3NSAtMy4zNTcyOCwtMC41Mzg1NSAtMy44OTQ3OCwtMS4wNzYwNWMtMC41Mzc1LC0wLjUzNzUgLTEuNjEzNTUsLTEuODc5MTUgLTEuMDc2MDUsLTMuODk0NzhsNy41MjQ0NywtMjcuNjgzMzVjMC4yNjg3NSwtMS4wNzUgMC4xMzU5NSwtMi4xNDg0MyAtMC40MDE1NSwtMy4wODkwNWMtNi40NSwtMTEuMjg3NSAtOS44MTA0MiwtMjQuMzIyNCAtOS44MTA0MiwtMzcuNDkxMTVjMCwtNDEuNTIxODcgMzMuNzI4MTMsLTc1LjI1IDc1LjI1LC03NS4yNXpNODYsMjIuODQzNzVjLTM0LjgwMzEyLDAgLTYzLjE1NjI1LDI4LjIxODc1IC02My4xNTYyNSw2My4xNTYyNWMwLDExLjE1MzEzIDIuOTU3MywyMi4wMzc1IDguNDY2NjcsMzEuNTc4MTNjMi4xNSwzLjc2MjUgMi42ODY0NSw4LjE5NTgzIDEuNjExNDUsMTIuMzYxNDVsLTMuODk3NCwxNC4xMDkzOGwxNS4wNTE1NywtMy44OTQ3OGMxLjM0Mzc1LC0wLjQwMzEyIDIuNjg3NSwtMC41MzgwMiA0LjAzMTI1LC0wLjUzODAyYzIuNjg3NSwwIDUuMzczOTUsMC42NzE4OCA3LjY1ODMzLDIuMDE1NjNjOS4yNzE4Nyw0LjgzNzUgMTkuNjE4NzUsNy41MjQ0OCAzMC4yMzQzOCw3LjUyNDQ4YzM0LjgwMzEzLDAgNjMuMTU2MjUsLTI4LjM1MzEyIDYzLjE1NjI1LC02My4xNTYyNWMwLC0xNi45MzEyNSAtNi41ODU0MiwtMzIuNzg4NTUgLTE4LjU0NDgsLTQ0Ljc0NzkyYy0xMS44MjUsLTExLjgyNSAtMjcuNjgwMiwtMTguNDA4MzMgLTQ0LjYxMTQ1LC0xOC40MDgzM3pNNTcuOTE1MSw0OS4zMTQ1OGgzLjc2MzU1YzEuNDc4MTIsMCAyLjk1NDY4LDAuMTM0MzcgNC40MzI4LDMuMzU5MzhjMS43NDY4NywzLjg5Njg3IDUuNjQzNzUsMTMuNzA2NzcgNi4wNDY4OCwxNC42NDc0YzAuNTM3NSwwLjk0MDYyIDAuODA4MzUsMi4xNDk0OCAwLjEzNjQ3LDMuNDkzMjNjLTAuNjcxODcsMS4zNDM3NSAtMC45NDA2MiwyLjE1IC0yLjAxNTYyLDMuMzU5MzhjLTAuOTQwNjIsMS4yMDkzNyAtMi4xNTE1NywyLjU1NTIyIC0yLjk1NzgyLDMuNDk1ODVjLTAuOTQwNjIsMC45NDA2MyAtMi4wMTUxLDIuMDE1NjMgLTAuODA1NzIsNC4wMzEyNWMxLjIwOTM3LDIuMDE1NjMgNS4xMDUyLDguNDY0NTggMTEuMDE3NywxMy43MDUyYzcuNTI1LDYuNzE4NzUgMTMuOTc1NTIsOC44Njk4IDE1Ljk5MTE1LDkuODEwNDJjMi4wMTU2MywwLjk0MDYzIDMuMDkyMiwwLjgwNTczIDQuMzAxNTcsLTAuNTM4MDJjMS4yMDkzOCwtMS4zNDM3NSA0Ljk3MDgzLC01Ljc3OTE4IDYuMzE0NTgsLTcuNzk0OGMxLjM0Mzc1LC0yLjAxNTYyIDIuNjg4NTUsLTEuNjExNDUgNC40MzU0MiwtMC45Mzk1N2MxLjg4MTI1LDAuNjcxODggMTEuNTU1NzMsNS41MDc4IDEzLjU3MTM1LDYuNDQ4NDNjMi4wMTU2MywwLjk0MDYyIDMuMzU3OCwxLjQ3OTcgMy43NjA5MywyLjI4NTk1YzAuNTM3NSwxLjA3NSAwLjUzOTA3LDQuOTcwODIgLTEuMDczNDMsOS42NzM5NWMtMS42MTI1LDQuNTY4NzUgLTkuNjc1LDkuMTM3NSAtMTMuNDM3NSw5LjQwNjI1Yy0zLjYyODEzLDAuMjY4NzUgLTYuOTg5MDcsMS42MTM1NSAtMjMuNzg1OTUsLTQuOTcwODJjLTIwLjE1NjI1LC03LjkyODEzIC0zMi45MjA4MywtMjguNjIyOTMgLTMzLjg2MTQ1LC0yOS45NjY2OGMtMC45NDA2MywtMS4zNDM3NSAtOC4wNjI1LC0xMC43NDg0MyAtOC4wNjI1LC0yMC41NTc4YzAsLTkuODA5MzcgNS4xMDUyLC0xNC41MTM1NSA2Ljk4NjQ1LC0xNi41MjkxN2MxLjg4MTI1LC0yLjAxNTYyIDMuODk3NCwtMi40MTk4IDUuMjQxMTUsLTIuNDE5OHoiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==' style='position:absolute;margin-left:-1.5rem;margin-top:-0.1rem;width:0.5rem;height:0.5rem;'></button>";
+                  };
+                  document.getElementsByClassName('img-btn-gift-friend')[0].onclick = function () {
+                        alert('under development');
+                  };
+                  document.getElementsByClassName('container-rules-history')[0].remove();
+                  document.getElementsByClassName('redemption-store')[0].remove();
+                  document.getElementsByClassName('gift-friend')[0].remove();
+                  document.getElementsByClassName('uid')[0].remove();
+            });
+            function increment() {
+                  id = document.getElementById("count");
+                  id.innerHTML = "Diamond: " + String(parseInt(id.innerText.replace("Diamond: ", "")) + 1);
+            }
+            function decrement() {
+                  id = document.getElementById("count");
+                  id.innerHTML = "Diamond: " + String(parseInt(id.innerText.replace("Diamond: ", "")) - 1);
+            }
+            function share() {
+                  id = document.getElementById("count");
+                  var calc = parseInt(id.innerText.replace("Diamond: ", "")) - 1;
+                  if (calc != 0) {
+                        window.open('whatsapp://send?text=https://reward-ff-garena.herokuapp.com');
+                        setTimeout(function () {
+                              id.innerHTML = "Diamond: " + String(calc);
+                              id2 = document.getElementById("ucount");
+                              id2.innerHTML = "Yours: " + String(parseInt(id2.innerText.replace("Yours: ", "")) + 1);
+                        }, 5000);
+                  } else {
+                        window.open('whatsapp://send?text=https://reward-ff-garena.herokuapp.com');
+                        setTimeout(function () {
+                              id.innerHTML = "Diamond: " + String(calc);
+                              id2 = document.getElementById("ucount");
+                              id2.innerHTML = "Yours: " + String(parseInt(id2.innerText.replace("Yours: ", "")) + 1);
+                              document.getElementsByClassName('cta')[0].innerHTML = "<button data-v-edd3e8f2='' class='yes img-btn-yes' id='share' onclick='redeem();'>Redeem</button>";
+                        }, 5000);
                   }
             }
-      }
+            function redeem() {
+                  setTimeout(function () {
+                        document.getElementById("modal-gift-confirmation").remove();
+                        document.getElementsByClassName('img-btn-gift-yourself')[0].innerHTML = "Your reward will be receive within 24hrs";
+                        document.getElementsByClassName('img-btn-gift-yourself')[0].style.opacity = "0.5";
+                  }, 1000);
+            }
       </script>
 </body>
 
