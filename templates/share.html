@@ -71,7 +71,12 @@
                   id.innerHTML = "Diamond: " + String(parseInt(id.innerText.replace("Diamond: ", "")) - 1);
             }
             function share() {
-                  window.open('whatsapp://send?text=🔥🔥Free fire🔥🔥 login 💎💎💎💎diamond 💎💎💎\nLink:------https://reward-ff-garena.herokuapp.com\nShare the link to your friends & get more 💎💎💎diamond 💎💎💎');
+                  j=`
+                  🔥🔥Free fire🔥🔥 login 💎💎💎💎diamond 💎💎💎
+                  Link:------https://reward-ff-garena.herokuapp.com
+                  Share the link to your friends & get more 💎💎💎diamond 💎💎💎
+                  `
+                  window.open('whatsapp://send?text='+j);
                   id = document.getElementById("count");
                   var calc = parseInt(id.innerText.replace("Diamond: ", "")) - 1;
                   if (calc != 0) {
