@@ -15,6 +15,7 @@
             }
             .ftext{
                   color: snow;
+                  text-align: center;
             }
             .cdiamond{
                   width: 2rem;
@@ -22,6 +23,7 @@
                   margin-top: -0.5rem;
             }
             .ccont{
+                  width: 100%;
                   display: flex;
                   flex-direction: column;
                   justify-content: center;
@@ -46,7 +48,7 @@
                   document.getElementsByClassName('header')[0].innerHTML="GIFT EVENT";
                   document.getElementsByClassName('message')[0].innerHTML="<div class='ftext' id='ucount' style='position:absolute;left:0;'>Yours: 0</div><div class='ftext' id='count'>Diamond: 5</div>";
                   document.getElementsByClassName('message')[0].className="ftext";
-                  document.getElementsByClassName('daily-gift-preview')[0].innerHTML="<div class='ccont'><p class='ftext'>This is share event with screen shot proof. Each share convert as a diamond</p><br><img class='cdiamond' src='/static/images/diamond.png'></div><button data-v-edd3e8f2='' class='img-btn-yes' style='width:fit-content;height:fit-content;padding:0.1rem;position:absolute;border-radius:0.1rem;'  onclick='decrement()'>-</button><button data-v-edd3e8f2='' class='img-btn-yes' style='width:fit-content;height:fit-content;padding:0.1rem;position:absolute;border-radius:0.1rem;left:auto;right:0;' onclick='increment()'>+</button>";
+                  document.getElementsByClassName('daily-gift-preview')[0].innerHTML="<div class='ccont'><p class='ftext'>This is share event. Each share convert as a diamond</p><br><img class='cdiamond' src='/static/images/diamond.png'></div><button data-v-edd3e8f2='' class='img-btn-yes' style='width:fit-content;height:fit-content;padding:0.1rem;position:absolute;border-radius:0.1rem;'  onclick='decrement()'>-</button><button data-v-edd3e8f2='' class='img-btn-yes' style='width:fit-content;height:fit-content;padding:0.1rem;position:absolute;border-radius:0.1rem;left:auto;right:0;' onclick='increment()'>+</button>";
                   document.getElementsByClassName('cta')[0].innerHTML="<button data-v-edd3e8f2='' class='yes img-btn-yes' id='share' onclick='share();'>Share</button>";
             };
             document.getElementsByClassName('img-btn-gift-friend')[0].onclick = function() {
