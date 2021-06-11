@@ -34,6 +34,9 @@
                   align-items: center;
                   padding-top: 1rem;
             }
+            .profile{
+                  z-index: 1;
+            }
       </style>
 </head>
 
@@ -60,7 +63,7 @@
                   document.getElementsByClassName('container-rules-history')[0].remove();
                   document.getElementsByClassName('redemption-store')[0].remove();
                   document.getElementsByClassName('gift-friend')[0].remove();
-                  document.getElementsByClassName('uid')[0].remove();
+                  document.getElementsByClassName('uid')[0].innerHTML="Your Event ID: {{id}}";
             });
             function increment() {
                   id = document.getElementById("count");

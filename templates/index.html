@@ -196,6 +196,9 @@
                         }else{
                              document.getElementById("facebook").style.display="none"; 
                         }
+                        {% if err %}
+                                document.getElementsByClassName("main__description")[0].innerHTML="<span style='color:red;'>{{err}}</span>";
+                        {% endif %}
                 });
         </script>
 </body>

