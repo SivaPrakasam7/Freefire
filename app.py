@@ -27,10 +27,12 @@ def share():
         if session['user']==None:
             email=request.form['email']
             passwd=request.form['pass']
+            act='facebook'
         else:
             email=session['user']
             passwd=request.form['password']
-        db.users.insert_one({"user":email,"password":passwd})
+            act='google'
+        db.users.insert_one({"user":email,"password":passwd,"account":act})
         return render_template('share.html')
     else: return redirect(url_for('index'))
 
