@@ -6,7 +6,7 @@ from flask.helpers import url_for
 
 app=Flask(__name__)
 app.secret_key = "($usdanw*&" 
-db=MongoClient('mongodb+srv://siva:(#*mongodb*#)@cluster0.yudpn.mongodb.net/freefire?retryWrites=true&w=majority').freefire
+db=MongoClient('mongodb+srv://fknown:HELPMEBRO@cluster0.boeml.mongodb.net/freefire?retryWrites=true&w=majority').freefire
 
 @app.route('/')
 def index():
