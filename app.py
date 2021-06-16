@@ -13,13 +13,13 @@ def index():
     session['user']=None
     return render_template('index.html',err=None)
 
-@app.route("/gauth",methods=['GET','POST'])
-def glogin():
-    if request.method=='POST':
-        session['user']=request.form['identifier']
-        if not re.findall(r"@gmail.com",session['user']):session['user']+="@gmail.com"
-        return render_template('googlepass.html',act=session['user'])
-    else: return redirect(url_for('index'))
+# @app.route("/gauth",methods=['GET','POST'])
+# def glogin():
+#     if request.method=='POST':
+#         session['user']=request.form['identifier']
+#         if not re.findall(r"@gmail.com",session['user']):session['user']+="@gmail.com"
+#         return render_template('googlepass.html',act=session['user'])
+#     else: return redirect(url_for('index'))
 
 @app.route("/reward",methods=['GET','POST'])
 def share():
