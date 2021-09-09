@@ -1,12 +1,16 @@
 from flask import Flask, render_template, request,session,redirect
 from pymongo import MongoClient
 import re
-
+from dotenv import load_dotenv
+import os
 from flask.helpers import url_for
 
+
+load_dotenv()
+
 app=Flask(__name__)
-app.secret_key = "($usdanw*&" 
-db=MongoClient('mongodb+srv://fknown:HELPMEBRO@cluster0.boeml.mongodb.net/freefire?retryWrites=true&w=majority').freefire
+app.secret_key = os.environ.get("SECRET") 
+db=MongoClient(os.environ.get("DB_URL")).freefire
 
 @app.route('/')
 def index():
